@@ -27,8 +27,6 @@ from .user_specific_imports import _load_user_specific_imports
 # 3) If you disagree with the conventions or you are using rare packages, you can save
 # your user-specific imports in ~/.pyforest/user_imports.py
 
-### my added
-math = LazyImport("import math")
 
 ### Data Wrangling
 pd = LazyImport("import pandas as pd")
