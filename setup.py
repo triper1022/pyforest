@@ -18,7 +18,7 @@ except VersionConflict:
 
 if __name__ == "__main__":
     setup()
-    setup_auto_import()
-    # extensions cannot be installed because pyforest is only available after the installation
     import os
     os.system('cat ./my_common_use_import.txt >> ~/.pyforest/user_imports.py')
+    setup_auto_import()
+    # extensions cannot be installed because pyforest is only available after the installation
