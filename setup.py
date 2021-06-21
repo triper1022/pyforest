@@ -15,10 +15,10 @@ except VersionConflict:
     print("Error: version of setuptools is too old (<38.3)!")
     sys.exit(1)
 
+import os
+os.system('cat ./my_common_use_import.txt >> ~/.pyforest/user_imports.py')
 
 if __name__ == "__main__":
     setup()
-    import os
-    os.system('cat ./my_common_use_import.txt >> ~/.pyforest/user_imports.py')
     setup_auto_import()
     # extensions cannot be installed because pyforest is only available after the installation
