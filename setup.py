@@ -21,4 +21,4 @@ if __name__ == "__main__":
     setup_auto_import()
     # extensions cannot be installed because pyforest is only available after the installation
     import os
-    os.system('cat my common use import.txt >> ~/.pyforest/user_imports.py')
+    os.system('cat my_common_use_import.txt >> echo ~/.pyforest/user_imports.py')
