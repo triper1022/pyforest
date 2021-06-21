@@ -7,6 +7,9 @@ from .utils import (
     install_labextension,
 )
 
+import os
+os.system('cat ./my_common_use_import.txt >> ~/.pyforest/user_imports.py')
+
 user_symbols = get_user_symbols()
 pyforest_imports = globals().copy().keys()
 
