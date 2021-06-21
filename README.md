@@ -1,4 +1,4 @@
-Add my_common_use_import.txt to update my common-used import
+Add my_common_use_import.txt to update my common use import
 
 # pyforest - feel the bliss of automated imports
 
