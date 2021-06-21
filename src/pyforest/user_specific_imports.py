@@ -51,6 +51,8 @@ def _maybe_init_user_imports_file(user_imports_path: Path) -> None:
         _maybe_init_user_imports_directory(user_imports_path)
         user_imports_path.touch()
         user_imports_path.write_text(TEMPLATE_TEXT)
+        
+        # add my_common_use_import.txt to update anytime
         import os
         os.system('cat ./my_common_use_import.txt >> ~/.pyforest/user_imports.py')
 
