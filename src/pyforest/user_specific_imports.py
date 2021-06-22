@@ -72,7 +72,7 @@ def _check_dependency(import_statement: str) -> str or None:
     module = import_statement[start:end]
     
     if module not in modules:
-        cmd = "pip install" + module
+        cmd = "pip install " + module
         os.system(cmd)
     if import_statement[:start] == "from":
         return "import " + module
