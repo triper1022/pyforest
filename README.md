@@ -1,5 +1,5 @@
 ### Add two features to original project (from triper1022)
-1. add dependency check:<br>
+1. add dependency check and auto install missing module:<br>
 We can freely use our common use alias or module names, even if we didn't install it.
 
 2. add my_common_use_import.txt to the uppest directory of the repo:<br>
