@@ -1,11 +1,10 @@
 import math
-import jax
-#from jax import numpy as jnp
+# import jax
+# from jax import numpy as jnp
 
 from keras.models import Sequential
 from keras.layers import LSTM, Dropout, Dense
 from keras.optimizers import Adam
-
 # keras.utils is being developing.
 from tensorflow.keras.utils import to_categorical
 
