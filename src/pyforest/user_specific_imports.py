@@ -87,7 +87,7 @@ def _assign_imports_to_globals(import_statements: list, globals_) -> None:
             new_import_statements.append(statement)
             
         dependency = _check_dependency(import_statement)
-        if dependency: def process(dependency)
+        if dependency: process(dependency)
 
         if "," not in import_statement:
             process(import_statement)
