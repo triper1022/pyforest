@@ -1,5 +1,8 @@
 from ._importable import LazyImport
 from pathlib import Path
+import os, sys
+# check for all installed modules
+modules = sys.modules.keys()
 
 USER_IMPORTS_PATH = Path.home() / ".pyforest" / "user_imports.py"
 
@@ -53,7 +56,6 @@ def _maybe_init_user_imports_file(user_imports_path: Path) -> None:
         user_imports_path.write_text(TEMPLATE_TEXT)
         
         # add my_common_use_import.txt to update anytime
-        import os
         os.system('cat ./my_common_use_import.txt >> ~/.pyforest/user_imports.py')
 
 
@@ -63,6 +65,19 @@ def _get_imports_from_user_settings(user_imports_path) -> list:
     return _get_imports(file_lines)
 
 
+def _check_dependency(import_statement: str) -> str or None: 
+    # get import module's name
+    start = import_statement.find(" ") + 1
+    end = min(import_statement.find(" ", start), import_statement.find(",", start))
+    module = import_statement[start:end]
+    
+    if module not in modules:
+        cmd = "pip install" + module
+        os.system(cmd)
+    if import_statement[:start] == "from":
+        return "import " + module
+
+
 def _assign_imports_to_globals(import_statements: list, globals_) -> None:
     symbols = []; new_import_statements = []
     
@@ -70,6 +85,9 @@ def _assign_imports_to_globals(import_statements: list, globals_) -> None:
         def process(statement):
             symbols.append(statement.split()[-1])
             new_import_statements.append(statement)
+            
+        dependency = _check_dependency(import_statement)
+        if dependency: def process(dependency)
 
         if "," not in import_statement:
             process(import_statement)
