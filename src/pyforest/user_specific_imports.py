@@ -63,7 +63,7 @@ def _get_imports_from_user_settings(user_imports_path) -> list:
     return _get_imports(file_lines)
 
 
-def _assign_imports_to_globals(import_statements: list) -> None:
+def _assign_imports_to_globals(import_statements: list, globals_) -> None:
     symbols = []; new_import_statements = []
     
     for import_statement in import_statements:
