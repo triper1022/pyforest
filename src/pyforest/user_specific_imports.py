@@ -67,14 +67,16 @@ def _get_imports_from_user_settings(user_imports_path) -> list:
 
 def _check_dependency(import_statement: str) -> str or None: 
     # get import module's name
-    start = import_statement.find(" ") + 1
-    end = min(import_statement.find(" ", start), import_statement.find(",", start))
-    module = import_statement[start:end]
+    splited_import_statement = import_statement.split()
+    if "." not in splited_import_statement[1]:
+        module = splited_import_statement[1]
+    else:
+        module = splited_import_statement[1].split(".")[0]
     
     if module not in modules:
         cmd = "pip install " + module
         os.system(cmd)
-    if import_statement[:start] == "from":
+    if splited_import_statement[0] == "from":
         return "import " + module
 
 
