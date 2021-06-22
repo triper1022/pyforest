@@ -76,8 +76,8 @@ def _check_dependency(import_statement: str) -> str or None:
     if module not in modules:
         cmd = "pip install " + module
         os.system(cmd)
-    if splited_import_statement[0] == "from":
-        return "import " + module
+        if splited_import_statement[0] == "from":
+            return "import " + module
 
 
 def _assign_imports_to_globals(import_statements: list, globals_) -> None:
