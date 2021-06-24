@@ -96,11 +96,10 @@ def _assign_imports_to_globals(import_statements: list, globals_) -> None:
         else:
             multi_import_statement = import_statement.split(",")
             splited_statement = multi_import_statement[0].split()
+            process(multi_import_statement[0])
             for i in range(len(multi_import_statement)):
-                if not i: process(multi_import_statement[0])
-                else:
-                    new_statement = splited_statement[:-1] + [multi_import_statement[i]]
-                    process(" ".join(new_statement))
+                new_statement = splited_statement[:-1] + [multi_import_statement[i]]
+                process(" ".join(new_statement))
 
     for symbol, import_statement in zip(symbols, new_import_statements):
         exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
