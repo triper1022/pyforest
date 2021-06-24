@@ -97,7 +97,8 @@ def _assign_imports_to_globals(import_statements: list, globals_) -> None:
             multi_import_statement = import_statement.split(",")
             splited_statement = multi_import_statement[0].split()
             process(multi_import_statement[0])
-            for i in range(len(multi_import_statement)):
+            
+            for i in range(1, len(multi_import_statement)):
                 new_statement = splited_statement[:-1] + [multi_import_statement[i]]
                 process(" ".join(new_statement))
 
